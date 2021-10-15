@@ -6,6 +6,8 @@
 <meta charset="EUC-KR">
 <title>회원가입 입력폼</title>
 <script src="js/juminCheck.js" charset="UTF-8" ></script>
+<script src="js/change_email.js" ></script>
+<script src="js/idCheck.js?v=<%=System.currentTimeMillis() %>" charset="UTF-8" ></script>
 <style>
 .title {
    margin: 40px 30px 30px 30px;
@@ -96,7 +98,7 @@
                   <tr>
                      <td>이메일<span class="red">*</span></td>
                      <td><input type="text" name="mem_email_id" id="email_id" />@
-                        <input type="text" name="mem_email_domain" id="email_domain" />
+                        <input type="text" name="mem_email_domain" id="email_add" />
                         <select name="email_sel" id="email_sel"
                         style="font-size: 16px; height: 30px;"
                         onchange="change_email();">
@@ -126,8 +128,8 @@
                   </tr>
                   <tr>
                      <td>성별</td>
-                     <td><input type="radio" name="mem_gender" value="남성" checked />남성&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="mem_gender" value="여성" />여성</td>
+                     <td><input type="radio" name="mem_gender" value="남" checked />남&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="mem_gender" value="여" />여</td>
                   </tr>
                   <tr>
                      <td>생년월일<span class="red">*</span></td>
@@ -158,6 +160,18 @@
                         }
                         document.write("</select>일 ");
                      </script></td>
+                  </tr>
+                  <tr>
+                  	<td>직업<span class="red">*</span></td>
+                  	<td>
+                  		<select name="mem_jab">
+                  			<option value="">직업선택</option>
+                  			<option value="회사원">회사원</option>
+                  			<option value="프로그래머">프로그래머</option>
+                  			<option value="공무원">공무원</option>
+                  			<option value="기타">기타</option>
+                  		</select>
+                  	</td>
                   </tr>
                   <tr>
                      <td>주소<span class="red">*</span></td>
@@ -253,8 +267,7 @@
                                              // 커서를 상세주소 필드로 이동한다.
                                              document
                                                    .getElementById(
-                                                         "detailAddress")
-                                                   .focus();
+                                                         "detailAddress").focus();
 
                                              // iframe을 넣은 element를 안보이게 한다.
                                              // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
